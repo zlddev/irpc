@@ -15,27 +15,33 @@
 
 ## 🖼 Preview
 
-<img src="https://stabenow.dev/iRPC/iRPC_Mobile_Preview.png" width="400"/>
+![iRPC Mobile App Preview](https://stabenow.dev/iRPC/iRPC_Mobile_Preview.png)
 
 ---
 
 ## 🚀 Getting Started
 
 ### Requirements
+
 - **iOS**: iOS 15+ and a Discord account.
 
 ### Installation
 
 #### iOS
+
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/itoolio/iRPC.git
    cd iRPC
    ```
+
 2. Open the `iRPC Mobile` project in Xcode:
+
    ```bash
    open iRPC_MobileApp.xcodeproj
    ```
+
 3. Build and run the app on your iOS device.
 
 ---
@@ -52,19 +58,26 @@
 ## 🧑‍💻 Contributing
 
 We welcome contributions! Follow these steps to get started:
+
 1. Fork the repository.
 2. Create your feature branch:
+
    ```bash
    git checkout -b feature/AmazingFeature
    ```
+
 3. Commit your changes:
+
    ```bash
    git commit -m 'Add some AmazingFeature'
    ```
+
 4. Push to the branch:
+
    ```bash
    git push origin feature/AmazingFeature
    ```
+
 5. Open a pull request.
 
 ---
