@@ -19,14 +19,14 @@
 			containerPortal = F4BE1C292DC94AD5009B622C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3A7B0DC12DCD1C8E003A9644;
-			remoteInfo = "iRPC Mobile";
+			remoteInfo = "iRPC";
 		};
 		3A7B0DDD2DCD1C90003A9644 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4BE1C292DC94AD5009B622C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3A7B0DC12DCD1C8E003A9644;
-			remoteInfo = "iRPC Mobile";
+			remoteInfo = "iRPC";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,23 +50,10 @@
 		F49296B12DC9520600FA24D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3A7B0DEA2DCD1C90003A9644 /* Exceptions for "iRPC Mobile" folder in "iRPC" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 3A7B0DC12DCD1C8E003A9644 /* iRPC */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3A7B0DC32DCD1C8E003A9644 /* iRPC Mobile */ = {
+		3A7B0DC32DCD1C8E003A9644 /* iRPC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				3A7B0DEA2DCD1C90003A9644 /* Exceptions for "iRPC Mobile" folder in "iRPC" target */,
-			);
-			path = "iRPC Mobile";
+			path = iRPC;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -104,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				F49296B12DC9520600FA24D8 /* README.md */,
-				3A7B0DC32DCD1C8E003A9644 /* iRPC Mobile */,
+				3A7B0DC32DCD1C8E003A9644 /* iRPC */,
 				F4BE1C322DC94AD5009B622C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,7 +123,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				3A7B0DC32DCD1C8E003A9644 /* iRPC Mobile */,
+				3A7B0DC32DCD1C8E003A9644 /* iRPC */,
 			);
 			name = iRPC;
 			packageProductDependencies = (
@@ -145,7 +132,7 @@
 				3AD92A7D2DD39FD100CCE9E4 /* DiscordSocialKit */,
 				F480CA2E2DDB9A39002493DD /* ScrobbleKit */,
 			);
-			productName = "iRPC Mobile";
+			productName = "iRPC";
 			productReference = 3A7B0DC22DCD1C8E003A9644 /* iRPC.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -165,7 +152,7 @@
 			name = "iRPC Tests";
 			packageProductDependencies = (
 			);
-			productName = "iRPC MobileTests";
+			productName = "iRPCTests";
 			productReference = 3A7B0DD22DCD1C90003A9644 /* iRPC Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -185,7 +172,7 @@
 			name = "iRPC UITests";
 			packageProductDependencies = (
 			);
-			productName = "iRPC MobileUITests";
+			productName = "iRPCUITests";
 			productReference = 3A7B0DDC2DCD1C90003A9644 /* iRPC UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -307,13 +294,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iRPC Mobile/iRPC_Mobile.entitlements";
+				CODE_SIGN_ENTITLEMENTS = iRPC/iRPC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L988J7YMK5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iRPC Mobile/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = iRPC;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "iRPC requires access to Apple Music to function.";
@@ -345,13 +331,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iRPC Mobile/iRPC_Mobile.entitlements";
+				CODE_SIGN_ENTITLEMENTS = iRPC/iRPC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L988J7YMK5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iRPC Mobile/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = iRPC;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "iRPC requires access to Apple Music to function.";
@@ -395,7 +380,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRPC Mobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iRPC Mobile";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRPC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iRPC";
 			};
 			name = Debug;
 		};
@@ -415,7 +400,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRPC Mobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iRPC Mobile";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRPC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iRPC";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -435,7 +420,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "iRPC Mobile";
+				TEST_TARGET_NAME = iRPC;
 			};
 			name = Debug;
 		};
@@ -454,7 +439,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "iRPC Mobile";
+				TEST_TARGET_NAME = iRPC;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

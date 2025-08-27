@@ -1,6 +1,6 @@
 //
-//  iRPC_MobileApp.swift
-//  iRPC Mobile
+//  iRPCApp.swift
+//  iRPC
 //
 //  Created by Adrian Castro on 8/5/25.
 //
@@ -10,7 +10,7 @@ import SwiftData
 import SwiftUI
 
 @main
-struct iRPC_MobileApp: App {
+struct iRPCApp: App {
 	let container: ModelContainer
 
 	init() {
