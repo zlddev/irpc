@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  iRPC Mobile
+//  iRPC
 //
 //  Created by Adrian Castro on 8/5/25.
 //

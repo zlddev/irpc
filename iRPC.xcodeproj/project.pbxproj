@@ -19,14 +19,14 @@
 			containerPortal = F4BE1C292DC94AD5009B622C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3A7B0DC12DCD1C8E003A9644;
-			remoteInfo = "iRPC Mobile";
+			remoteInfo = "iRPC";
 		};
 		3A7B0DDD2DCD1C90003A9644 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4BE1C292DC94AD5009B622C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3A7B0DC12DCD1C8E003A9644;
-			remoteInfo = "iRPC Mobile";
+			remoteInfo = "iRPC";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -44,29 +44,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3A7B0DC22DCD1C8E003A9644 /* iRPC Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iRPC Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A7B0DD22DCD1C90003A9644 /* iRPC MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iRPC MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A7B0DDC2DCD1C90003A9644 /* iRPC MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iRPC MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7B0DC22DCD1C8E003A9644 /* iRPC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRPC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7B0DD22DCD1C90003A9644 /* iRPC Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iRPC Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A7B0DDC2DCD1C90003A9644 /* iRPC UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iRPC UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49296B12DC9520600FA24D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3A7B0DEA2DCD1C90003A9644 /* Exceptions for "iRPC Mobile" folder in "iRPC Mobile" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 3A7B0DC12DCD1C8E003A9644 /* iRPC Mobile */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3A7B0DC32DCD1C8E003A9644 /* iRPC Mobile */ = {
+		3A7B0DC32DCD1C8E003A9644 /* iRPC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				3A7B0DEA2DCD1C90003A9644 /* Exceptions for "iRPC Mobile" folder in "iRPC Mobile" target */,
-			);
-			path = "iRPC Mobile";
+			path = iRPC;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -104,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				F49296B12DC9520600FA24D8 /* README.md */,
-				3A7B0DC32DCD1C8E003A9644 /* iRPC Mobile */,
+				3A7B0DC32DCD1C8E003A9644 /* iRPC */,
 				F4BE1C322DC94AD5009B622C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,9 +99,9 @@
 		F4BE1C322DC94AD5009B622C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A7B0DC22DCD1C8E003A9644 /* iRPC Mobile.app */,
-				3A7B0DD22DCD1C90003A9644 /* iRPC MobileTests.xctest */,
-				3A7B0DDC2DCD1C90003A9644 /* iRPC MobileUITests.xctest */,
+				3A7B0DC22DCD1C8E003A9644 /* iRPC.app */,
+				3A7B0DD22DCD1C90003A9644 /* iRPC Tests.xctest */,
+				3A7B0DDC2DCD1C90003A9644 /* iRPC UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,9 +109,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A7B0DC12DCD1C8E003A9644 /* iRPC Mobile */ = {
+		3A7B0DC12DCD1C8E003A9644 /* iRPC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A7B0DEB2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC Mobile" */;
+			buildConfigurationList = 3A7B0DEB2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC" */;
 			buildPhases = (
 				3A7B0DBE2DCD1C8E003A9644 /* Sources */,
 				3A7B0DBF2DCD1C8E003A9644 /* Frameworks */,
@@ -136,22 +123,22 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				3A7B0DC32DCD1C8E003A9644 /* iRPC Mobile */,
+				3A7B0DC32DCD1C8E003A9644 /* iRPC */,
 			);
-			name = "iRPC Mobile";
+			name = iRPC;
 			packageProductDependencies = (
 				3A4B2FD12DCE6FDF006DFDDA /* MusadoraKit */,
 				3AC1BE722DD278C500CF3D2C /* NowPlayingKit */,
 				3AD92A7D2DD39FD100CCE9E4 /* DiscordSocialKit */,
 				F480CA2E2DDB9A39002493DD /* ScrobbleKit */,
 			);
-			productName = "iRPC Mobile";
-			productReference = 3A7B0DC22DCD1C8E003A9644 /* iRPC Mobile.app */;
+			productName = "iRPC";
+			productReference = 3A7B0DC22DCD1C8E003A9644 /* iRPC.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3A7B0DD12DCD1C90003A9644 /* iRPC MobileTests */ = {
+		3A7B0DD12DCD1C90003A9644 /* iRPC Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A7B0DEC2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC MobileTests" */;
+			buildConfigurationList = 3A7B0DEC2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC Tests" */;
 			buildPhases = (
 				3A7B0DCE2DCD1C90003A9644 /* Sources */,
 				3A7B0DCF2DCD1C90003A9644 /* Frameworks */,
@@ -162,16 +149,16 @@
 			dependencies = (
 				3A7B0DD42DCD1C90003A9644 /* PBXTargetDependency */,
 			);
-			name = "iRPC MobileTests";
+			name = "iRPC Tests";
 			packageProductDependencies = (
 			);
-			productName = "iRPC MobileTests";
-			productReference = 3A7B0DD22DCD1C90003A9644 /* iRPC MobileTests.xctest */;
+			productName = "iRPCTests";
+			productReference = 3A7B0DD22DCD1C90003A9644 /* iRPC Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3A7B0DDB2DCD1C90003A9644 /* iRPC MobileUITests */ = {
+		3A7B0DDB2DCD1C90003A9644 /* iRPC UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A7B0DED2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC MobileUITests" */;
+			buildConfigurationList = 3A7B0DED2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC UITests" */;
 			buildPhases = (
 				3A7B0DD82DCD1C90003A9644 /* Sources */,
 				3A7B0DD92DCD1C90003A9644 /* Frameworks */,
@@ -182,11 +169,11 @@
 			dependencies = (
 				3A7B0DDE2DCD1C90003A9644 /* PBXTargetDependency */,
 			);
-			name = "iRPC MobileUITests";
+			name = "iRPC UITests";
 			packageProductDependencies = (
 			);
-			productName = "iRPC MobileUITests";
-			productReference = 3A7B0DDC2DCD1C90003A9644 /* iRPC MobileUITests.xctest */;
+			productName = "iRPCUITests";
+			productReference = 3A7B0DDC2DCD1C90003A9644 /* iRPC UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -197,7 +184,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					3A7B0DC12DCD1C8E003A9644 = {
 						CreatedOnToolsVersion = 16.3;
@@ -233,9 +220,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A7B0DC12DCD1C8E003A9644 /* iRPC Mobile */,
-				3A7B0DD12DCD1C90003A9644 /* iRPC MobileTests */,
-				3A7B0DDB2DCD1C90003A9644 /* iRPC MobileUITests */,
+				3A7B0DC12DCD1C8E003A9644 /* iRPC */,
+				3A7B0DD12DCD1C90003A9644 /* iRPC Tests */,
+				3A7B0DDB2DCD1C90003A9644 /* iRPC UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -291,12 +278,12 @@
 /* Begin PBXTargetDependency section */
 		3A7B0DD42DCD1C90003A9644 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3A7B0DC12DCD1C8E003A9644 /* iRPC Mobile */;
+			target = 3A7B0DC12DCD1C8E003A9644 /* iRPC */;
 			targetProxy = 3A7B0DD32DCD1C90003A9644 /* PBXContainerItemProxy */;
 		};
 		3A7B0DDE2DCD1C90003A9644 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3A7B0DC12DCD1C8E003A9644 /* iRPC Mobile */;
+			target = 3A7B0DC12DCD1C8E003A9644 /* iRPC */;
 			targetProxy = 3A7B0DDD2DCD1C90003A9644 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -307,13 +294,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iRPC Mobile/iRPC_Mobile.entitlements";
+				CODE_SIGN_ENTITLEMENTS = iRPC/iRPC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F2VS4PRAT5;
+				DEVELOPMENT_TEAM = L988J7YMK5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iRPC Mobile/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = iRPC;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "iRPC requires access to Apple Music to function.";
@@ -331,7 +317,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPC;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -345,13 +331,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iRPC Mobile/iRPC_Mobile.entitlements";
+				CODE_SIGN_ENTITLEMENTS = iRPC/iRPC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F2VS4PRAT5;
+				DEVELOPMENT_TEAM = L988J7YMK5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iRPC Mobile/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = iRPC;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "iRPC requires access to Apple Music to function.";
@@ -369,7 +354,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPC;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -385,17 +370,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F2VS4PRAT5;
+				DEVELOPMENT_TEAM = L988J7YMK5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRPC Mobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iRPC Mobile";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRPC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iRPC";
 			};
 			name = Debug;
 		};
@@ -405,17 +390,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F2VS4PRAT5;
+				DEVELOPMENT_TEAM = L988J7YMK5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRPC Mobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iRPC Mobile";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRPC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iRPC";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -425,17 +410,17 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F2VS4PRAT5;
+				DEVELOPMENT_TEAM = L988J7YMK5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "iRPC Mobile";
+				TEST_TARGET_NAME = iRPC;
 			};
 			name = Debug;
 		};
@@ -444,17 +429,17 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F2VS4PRAT5;
+				DEVELOPMENT_TEAM = L988J7YMK5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "iRPC Mobile";
+				TEST_TARGET_NAME = iRPC;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -493,6 +478,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = F2VS4PRAT5;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -557,6 +543,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F2VS4PRAT5;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -582,7 +569,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A7B0DEB2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC Mobile" */ = {
+		3A7B0DEB2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A7B0DE42DCD1C90003A9644 /* Debug */,
@@ -591,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A7B0DEC2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC MobileTests" */ = {
+		3A7B0DEC2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A7B0DE62DCD1C90003A9644 /* Debug */,
@@ -600,7 +587,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A7B0DED2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC MobileUITests" */ = {
+		3A7B0DED2DCD1C90003A9644 /* Build configuration list for PBXNativeTarget "iRPC UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A7B0DE82DCD1C90003A9644 /* Debug */,
