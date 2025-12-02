@@ -308,6 +308,9 @@ struct ContentView: View {
             
             print("🔄 Discord state changed: Auth=\(authenticated) Ready=\(ready) User=\(username ?? "none")")
             
+            // Check if Discord just became ready while userEnabledRPC is on (default)
+            let justBecameReady = !isDiscordReady && ready && authenticated
+            
             // Update our tracked state
             isDiscordAuthenticated = authenticated
             isDiscordReady = ready
@@ -315,6 +318,16 @@ struct ContentView: View {
             
             // Force UI refresh
             forceConnectionRefresh = UUID()
+            
+            // Auto-start RPC if Discord just became ready and userEnabledRPC is enabled (default)
+            if justBecameReady && userEnabledRPC {
+                print("🚀 Discord ready with RPC enabled by default - starting presence updates")
+                discord.startPresenceUpdates()
+                BackgroundController.shared.start()
+                if manager.isPlaying {
+                    Task { await updateDiscordWithCurrentSong() }
+                }
+            }
         }
     }
 
