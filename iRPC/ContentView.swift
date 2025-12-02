@@ -322,11 +322,7 @@ struct ContentView: View {
             // Auto-start RPC if Discord just became ready and userEnabledRPC is enabled (default)
             if justBecameReady && userEnabledRPC {
                 print("🚀 Discord ready with RPC enabled by default - starting presence updates")
-                discord.startPresenceUpdates()
-                BackgroundController.shared.start()
-                if manager.isPlaying {
-                    Task { await updateDiscordWithCurrentSong() }
-                }
+                startRPCServices()
             }
         }
     }
@@ -536,18 +532,26 @@ struct ContentView: View {
         }
     }
 
+    private func startRPCServices() {
+        discord.startPresenceUpdates()
+        BackgroundController.shared.start()
+        if manager.isPlaying {
+            Task { await updateDiscordWithCurrentSong() }
+        }
+    }
+
+    private func stopRPCServices() {
+        discord.stopPresenceUpdates()
+        BackgroundController.shared.stop()
+    }
+
     private func handleUserToggleRPC(enabled: Bool) {
         print("🎮 User toggled Discord RPC: \(enabled ? "ON" : "OFF")")
 
         if enabled {
-            discord.startPresenceUpdates()
-            if manager.isPlaying {
-                Task { await updateDiscordWithCurrentSong() }
-            }
-            BackgroundController.shared.start()
+            startRPCServices()
         } else {
-            discord.stopPresenceUpdates()
-            BackgroundController.shared.stop()
+            stopRPCServices()
         }
     }
 
