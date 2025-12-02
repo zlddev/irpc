@@ -20,7 +20,7 @@ struct ContentView: View {
     @State private var isAuthorized = false
     @State private var isLoading = true
     @State private var isAuthenticating = false
-    @State private var userEnabledRPC = false
+    @State private var userEnabledRPC = true
     @State private var showRPCToggle = false
     @StateObject private var discord = DiscordManager(applicationId: 1_370_062_110_272_520_313)
     private let manager = NowPlayingManager.shared
