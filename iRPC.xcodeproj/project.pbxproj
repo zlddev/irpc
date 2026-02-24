@@ -19,14 +19,14 @@
 			containerPortal = F4BE1C292DC94AD5009B622C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3A7B0DC12DCD1C8E003A9644;
-			remoteInfo = "iRPC";
+			remoteInfo = iRPC;
 		};
 		3A7B0DDD2DCD1C90003A9644 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4BE1C292DC94AD5009B622C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3A7B0DC12DCD1C8E003A9644;
-			remoteInfo = "iRPC";
+			remoteInfo = iRPC;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -132,7 +132,7 @@
 				3AD92A7D2DD39FD100CCE9E4 /* DiscordSocialKit */,
 				F480CA2E2DDB9A39002493DD /* ScrobbleKit */,
 			);
-			productName = "iRPC";
+			productName = iRPC;
 			productReference = 3A7B0DC22DCD1C8E003A9644 /* iRPC.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -152,7 +152,7 @@
 			name = "iRPC Tests";
 			packageProductDependencies = (
 			);
-			productName = "iRPCTests";
+			productName = iRPCTests;
 			productReference = 3A7B0DD22DCD1C90003A9644 /* iRPC Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -172,7 +172,7 @@
 			name = "iRPC UITests";
 			packageProductDependencies = (
 			);
-			productName = "iRPCUITests";
+			productName = iRPCUITests;
 			productReference = 3A7B0DDC2DCD1C90003A9644 /* iRPC UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -184,7 +184,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					3A7B0DC12DCD1C8E003A9644 = {
 						CreatedOnToolsVersion = 16.3;
@@ -292,15 +292,17 @@
 		3A7B0DE42DCD1C90003A9644 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iRPC Logo";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iRPC/iRPC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L988J7YMK5;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = F2VS4PRAT5;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = iRPC;
+				INFOPLIST_KEY_CFBundleDisplayName = "iRPC Mobile";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "iRPC requires access to Apple Music to function.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -309,7 +311,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,7 +319,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPC;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -329,15 +331,17 @@
 		3A7B0DE52DCD1C90003A9644 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iRPC Logo";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iRPC/iRPC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L988J7YMK5;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = F2VS4PRAT5;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = iRPC;
+				INFOPLIST_KEY_CFBundleDisplayName = "iRPC Mobile";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "iRPC requires access to Apple Music to function.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -346,7 +350,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +358,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPC;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -370,11 +374,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L988J7YMK5;
+				DEVELOPMENT_TEAM = F2VS4PRAT5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -390,11 +394,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L988J7YMK5;
+				DEVELOPMENT_TEAM = F2VS4PRAT5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -410,11 +414,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L988J7YMK5;
+				DEVELOPMENT_TEAM = F2VS4PRAT5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -429,11 +433,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L988J7YMK5;
+				DEVELOPMENT_TEAM = F2VS4PRAT5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.adrian.ios.iRPCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.stabenow.ios.iRPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -504,6 +508,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -562,6 +567,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
