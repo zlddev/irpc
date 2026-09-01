@@ -618,7 +618,7 @@
 		};
 		3AC1BE712DD278C500CF3D2C /* XCRemoteSwiftPackageReference "NowPlayingKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/itoolio/NowPlayingKit";
+			repositoryURL = "https://github.com/zlddev/NowPlayingKit";
 			requirement = {
 				branch = main;
 				kind = branch;

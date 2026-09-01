@@ -7,7 +7,7 @@
       "location" : "https://github.com/zlddev/DiscordSocialKit",
       "state" : {
         "branch" : "main",
-        "revision" : "8450791a1e8c948ec162a40d7379de117f240715"
+        "revision" : "bc752427aef3850934260de986ab277f5e16dd62"
       }
     },
     {
@@ -31,10 +31,10 @@
     {
       "identity" : "nowplayingkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/itoolio/NowPlayingKit",
+      "location" : "https://github.com/zlddev/NowPlayingKit",
       "state" : {
         "branch" : "main",
-        "revision" : "6b18f98ae1e0e23ff4f6dc8b63d6e321aa5aede6"
+        "revision" : "60f612361f303bda33d2d54c364295da20733486"
       }
     },
     {
