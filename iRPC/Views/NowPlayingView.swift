@@ -156,23 +156,7 @@ public struct NowPlayingView: View {
     }
     
     private func ArtworkView(url: URL) -> some View {
-        AsyncImage(url: url) { phase in
-            switch phase {
-            case .success(let image):
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 300)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-            default:
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(.secondary.opacity(0.1))
-                    .frame(height: 300)
-                    .overlay {
-                        ProgressView()
-                    }
-            }
-        }
+        ArtworkLoaderView(url: url)
     }
     
     private func SongInfoView(title: String, artist: String, album: String?) -> some View {
@@ -214,5 +198,94 @@ public struct NowPlayingView: View {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
         return String(format: "%02d:%02d", minutes, seconds)
+    }
+}
+
+/// Wraps AsyncImage with two things it doesn't provide on its own: a timeout
+/// (so a hung request doesn't spin forever with no way out) and a manual
+/// retry. Failures and timeouts are logged so they show up in the in-app
+/// console (see ConsoleLogCapture / ConsoleLogView).
+private struct ArtworkLoaderView: View {
+    let url: URL
+
+    @State private var refreshToken = UUID()
+    @State private var timedOut = false
+    @State private var timeoutTask: Task<Void, Never>?
+
+    var body: some View {
+        AsyncImage(url: url) { phase in
+            switch phase {
+            case .success(let image):
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 300)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .onAppear { cancelTimeout() }
+            case .failure(let error):
+                failureView(message: error.localizedDescription)
+                    .onAppear {
+                        print("❌ Artwork load failed for \(url.absoluteString): \(error.localizedDescription)")
+                        cancelTimeout()
+                    }
+            case .empty:
+                if timedOut {
+                    failureView(message: "Timed out")
+                } else {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(.secondary.opacity(0.1))
+                        .frame(height: 300)
+                        .overlay {
+                            ProgressView()
+                        }
+                        .onAppear {
+                            print("🖼️ Loading artwork from \(url.absoluteString)")
+                            startTimeout()
+                        }
+                }
+            @unknown default:
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(.secondary.opacity(0.1))
+                    .frame(height: 300)
+            }
+        }
+        .id(refreshToken)
+    }
+
+    private func failureView(message: String) -> some View {
+        VStack(spacing: 8) {
+            Image(systemName: "photo.badge.exclamationmark")
+                .font(.system(size: 32))
+                .foregroundStyle(.secondary)
+            Text("Artwork failed to load")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            Button("Retry") {
+                print("🔄 Retrying artwork load for \(url.absoluteString)")
+                timedOut = false
+                refreshToken = UUID()
+            }
+            .font(.caption)
+        }
+        .frame(height: 300)
+        .frame(maxWidth: .infinity)
+        .background(RoundedRectangle(cornerRadius: 12).fill(.secondary.opacity(0.1)))
+    }
+
+    private func startTimeout() {
+        timeoutTask?.cancel()
+        timeoutTask = Task {
+            try? await Task.sleep(nanoseconds: 10_000_000_000) // 10s
+            guard !Task.isCancelled else { return }
+            await MainActor.run {
+                print("⏱️ Artwork load timed out for \(url.absoluteString)")
+                timedOut = true
+            }
+        }
+    }
+
+    private func cancelTimeout() {
+        timeoutTask?.cancel()
+        timeoutTask = nil
     }
 }

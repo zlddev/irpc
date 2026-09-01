@@ -44,6 +44,7 @@ struct ContentView: View {
     @State private var isDiscordReady = false
     @State private var discordUsername: String? = nil
     @State private var showDebugInfo = false  // Set to true to show debug info in UI
+    @State private var isShowingConsole = false
 
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher> {
         Timer.publish(every: updateInterval, on: .main, in: .common).autoconnect()
@@ -167,6 +168,13 @@ struct ContentView: View {
             .listStyle(.insetGrouped)
             .navigationTitle("iRPC")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        isShowingConsole = true
+                    } label: {
+                        Label("Console", systemImage: "terminal")
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
                         DiscordSettingsView(
@@ -178,6 +186,9 @@ struct ContentView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $isShowingConsole) {
+            ConsoleLogView()
         }
         .onChange(of: manager.isPlaying) { _, newValue in
             print("🎵 Music playing state changed: \(newValue)")
