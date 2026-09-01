@@ -1,0 +1,65 @@
+name: Build iRPC
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    name: Build iRPC
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Resolve Swift packages
+        run: |
+          xcodebuild \
+            -resolvePackageDependencies \
+            -project iRPC.xcodeproj
+
+      - name: Build
+        run: |
+          xcodebuild \
+            -project iRPC.xcodeproj \
+            -scheme iRPC \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            build
+
+      - name: Package IPA
+        run: |
+          mkdir -p Payload
+
+          APP_PATH=$(find build/Build/Products/Release-iphoneos \
+            -maxdepth 1 \
+            -name "*.app" \
+            -type d \
+            | head -n 1)
+
+          if [ -z "$APP_PATH" ]; then
+            echo "Could not find .app"
+            find build -type d -name "*.app"
+            exit 1
+          fi
+
+          cp -R "$APP_PATH" Payload/
+
+          zip -r iRPC-unsigned.ipa Payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: iRPC-unsigned
+          path: iRPC-unsigned.ipa
