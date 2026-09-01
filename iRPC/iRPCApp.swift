@@ -19,6 +19,11 @@ struct iRPCApp: App {
 		// miss the earliest logs.
 		ConsoleLogCapture.shared.start()
 
+		// BGTaskScheduler requires registration before the app finishes
+		// launching — this is the backup keep-alive path for when the
+		// silent-audio background session gets suspended.
+		BackgroundController.shared.registerBackgroundTasks()
+
 		do {
 			let schema = Schema([DiscordTokenModel.self])
 			let config = ModelConfiguration(

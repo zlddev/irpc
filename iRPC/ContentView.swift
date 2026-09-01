@@ -25,8 +25,9 @@ struct ContentView: View {
     @StateObject private var discord = DiscordManager(applicationId: 1_370_062_110_272_520_313)
     private let manager = NowPlayingManager.shared
     @State private var lastUpdateTime: TimeInterval = 0
-    private let updateInterval: TimeInterval = 1
+    private static let updateInterval: TimeInterval = 1
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.scenePhase) private var scenePhase
     @State private var isMusicCurrentlyPlaying = false
     @State private var toggleRefreshTrigger = UUID()
     @State private var playbackSubscription: AnyCancellable?
@@ -46,9 +47,11 @@ struct ContentView: View {
     @State private var showDebugInfo = false  // Set to true to show debug info in UI
     @State private var isShowingConsole = false
 
-    private var timer: Publishers.Autoconnect<Timer.TimerPublisher> {
-        Timer.publish(every: updateInterval, on: .main, in: .common).autoconnect()
-    }
+    // Stored once, not recomputed every body evaluation — this used to be a
+    // computed property, which created (and immediately orphaned) a brand
+    // new Timer/subscription on every SwiftUI re-render instead of ticking
+    // steadily in the background.
+    @State private var timer = Timer.publish(every: ContentView.updateInterval, on: .main, in: .common).autoconnect()
 
     enum ConnectionState: Equatable {
         case connecting
@@ -245,6 +248,28 @@ struct ContentView: View {
             guard isAuthorized else { return }
             Task {
                 await updatePlaybackTime()
+            }
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            // Backup path: the silent-audio background session (see
+            // BackgroundController) is the primary keep-alive, but it can
+            // still get suspended by the system after extended background
+            // time. Queue a BGAppRefreshTask so there's a second chance to
+            // push a presence update even if that happens.
+            switch newPhase {
+            case .background:
+                BackgroundController.shared.refreshHandler = { [self] in
+                    await updateNowPlaying(forceRefresh: true)
+                }
+                if userEnabledRPC {
+                    BackgroundController.shared.scheduleAppRefresh()
+                }
+            case .active:
+                if userEnabledRPC && discord.isAuthenticated && discord.isReady {
+                    Task { await updateNowPlaying(forceRefresh: true) }
+                }
+            default:
+                break
             }
         }
         .onAppear {

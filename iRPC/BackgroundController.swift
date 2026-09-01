@@ -6,26 +6,82 @@
 //
 
 import AVFoundation
+import BackgroundTasks
 import UIKit
 import UserNotifications
 
 final class BackgroundController {
     static let shared = BackgroundController()
-    
+
+    static let refreshTaskIdentifier = "dev.adrian.ios.iRPC.refresh"
+
     private var backgroundTaskID: UIBackgroundTaskIdentifier = .invalid
     private var engine: AVAudioEngine?
     private var isRunning = false
     private var audioSession: AVAudioSession { AVAudioSession.sharedInstance() }
     private var interruptionObserver: NSObjectProtocol?
-    
+
     // Timer for periodic keep-alive tasks
     private var keepAliveTimer: Timer?
-    
+
     // Audio player start time for simulating long-running playback
     private var audioStartTime: TimeInterval = 0
     private var playerNode: AVAudioPlayerNode?
-    
+
+    // Called from the BGAppRefreshTask handler so this file doesn't need to
+    // know about NowPlayingManager/DiscordManager directly. Set once at
+    // launch by ContentView. This is a *backup* path for when the silent
+    // audio session gets suspended/killed by the system (e.g. after
+    // extended background time) — the primary keep-alive is the `audio`
+    // background mode + silent AVAudioEngine above.
+    var refreshHandler: (() async -> Void)?
+
     private init() {}
+
+    // MARK: - Background App Refresh (BGTaskScheduler)
+
+    /// Must be called before the app finishes launching (from the App's
+    /// `init()`), per BGTaskScheduler requirements.
+    func registerBackgroundTasks() {
+        BGTaskScheduler.shared.register(
+            forTaskWithIdentifier: Self.refreshTaskIdentifier,
+            using: nil
+        ) { [weak self] task in
+            self?.handleAppRefresh(task: task as! BGAppRefreshTask)
+        }
+    }
+
+    /// Queue up the next refresh. Call this whenever the app enters the
+    /// background — the system decides the actual fire time, this just
+    /// requests one "sometime soon-ish".
+    func scheduleAppRefresh() {
+        let request = BGAppRefreshTaskRequest(identifier: Self.refreshTaskIdentifier)
+        // iOS treats this as a hint, not a guarantee — earliest the OS will
+        // usually consider running it again.
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 60)
+
+        do {
+            try BGTaskScheduler.shared.submit(request)
+            print("📅 Scheduled background app refresh")
+        } catch {
+            print("❌ Could not schedule app refresh: \(error)")
+        }
+    }
+
+    private func handleAppRefresh(task: BGAppRefreshTask) {
+        // Always schedule the next one immediately — if we don't, and this
+        // execution gets cut short, we'd never get another chance.
+        scheduleAppRefresh()
+
+        let work = Task {
+            await refreshHandler?()
+            task.setTaskCompleted(success: true)
+        }
+
+        task.expirationHandler = {
+            work.cancel()
+        }
+    }
 
     func start() {
         guard !isRunning else { return }
