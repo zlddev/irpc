@@ -626,7 +626,7 @@
 		};
 		3AD92A7C2DD39FD100CCE9E4 /* XCRemoteSwiftPackageReference "DiscordSocialKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/itoolio/DiscordSocialKit";
+			repositoryURL = "https://github.com/zlddev/DiscordSocialKit";
 			requirement = {
 				branch = main;
 				kind = branch;

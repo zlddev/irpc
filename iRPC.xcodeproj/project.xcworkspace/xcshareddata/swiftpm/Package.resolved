@@ -4,10 +4,10 @@
     {
       "identity" : "discordsocialkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/itoolio/DiscordSocialKit",
+      "location" : "https://github.com/zlddev/DiscordSocialKit",
       "state" : {
         "branch" : "main",
-        "revision" : "425e949ef11b54823a4902ff34c8c02771c20e8c"
+        "revision" : "6ebb2e82a9a1625cf2bc487ecc0bae71aa52e935"
       }
     },
     {

@@ -33,6 +33,11 @@ struct ContentView: View {
     @State private var onAppearExecuted = false
     @State private var connectionCheckTimer: AnyCancellable?
     @State private var forceConnectionRefresh = UUID()
+    @State private var pendingClearTask: Task<Void, Never>?
+    // Apple Music/NowPlayingKit briefly reports `isPlaying == false` during the
+    // gap between two tracks. Waiting this long before actually clearing the
+    // Discord presence avoids wiping it out on every track change.
+    private let clearPlaybackGracePeriod: UInt64 = 3_000_000_000
 
     // Direct state tracking to force UI updates
     @State private var isDiscordAuthenticated = false
@@ -183,15 +188,13 @@ struct ContentView: View {
 
                 if newValue {
                     print("▶️ Music started playing - updating UI and Discord")
+                    cancelPendingClear()
                     if userEnabledRPC && discord.isAuthenticated && discord.isReady {
                         Task { await updateDiscordWithCurrentSong() }
                     }
                 } else {
                     print("⏸️ Music stopped playing")
-                    if userEnabledRPC && discord.isAuthenticated {
-                        print("🛑 Clearing Discord presence")
-                        discord.clearPlayback()
-                    }
+                    scheduleClearPlayback()
                 }
             }
         }
@@ -257,6 +260,32 @@ struct ContentView: View {
         }
     }
     
+    /// Cancels any scheduled Discord presence clear. Call this as soon as we
+    /// see playback resume so a brief pause (e.g. the gap between tracks)
+    /// never actually reaches `discord.clearPlayback()`.
+    private func cancelPendingClear() {
+        pendingClearTask?.cancel()
+        pendingClearTask = nil
+    }
+
+    /// Clears the Discord presence only if playback is still stopped after a
+    /// short grace period, instead of clearing it the instant `isPlaying`
+    /// flips to false (which happens transiently between tracks).
+    private func scheduleClearPlayback() {
+        cancelPendingClear()
+        pendingClearTask = Task {
+            try? await Task.sleep(nanoseconds: clearPlaybackGracePeriod)
+            guard !Task.isCancelled else { return }
+            await MainActor.run {
+                guard !manager.isPlaying else { return }
+                if userEnabledRPC && discord.isAuthenticated {
+                    print("🛑 Clearing Discord presence after grace period")
+                    discord.clearPlayback()
+                }
+            }
+        }
+    }
+
     private func setupMusicStatusObservers() {
         // Cancel any existing subscription
         playbackSubscription?.cancel()
@@ -334,13 +363,12 @@ struct ContentView: View {
             }
 
             if isCurrentlyPlaying {
+                self.cancelPendingClear()
                 if self.userEnabledRPC && self.discord.isAuthenticated && self.discord.isReady {
                     Task { await self.updateDiscordWithCurrentSong() }
                 }
             } else {
-                if self.userEnabledRPC && self.discord.isAuthenticated {
-                    self.discord.clearPlayback()
-                }
+                self.scheduleClearPlayback()
             }
 
             Task { await self.updateNowPlaying() }
@@ -486,6 +514,7 @@ struct ContentView: View {
             id: playback.id,
             title: playback.title,
             artist: playback.artist,
+            album: playback.album ?? "",
             duration: playback.duration,
             currentTime: playback.playbackTime,
             artworkURL: playback.artworkURL
