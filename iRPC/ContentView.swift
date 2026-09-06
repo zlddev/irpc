@@ -259,14 +259,27 @@ struct ContentView: View {
             switch newPhase {
             case .background:
                 BackgroundController.shared.refreshHandler = { [self] in
+                    if userEnabledRPC && !discord.isAuthenticated && !discord.isAuthorizing {
+                        await discord.setupWithExistingToken()
+                    }
                     await updateNowPlaying(forceRefresh: true)
                 }
                 if userEnabledRPC {
                     BackgroundController.shared.scheduleAppRefresh()
                 }
             case .active:
-                if userEnabledRPC && discord.isAuthenticated && discord.isReady {
-                    Task { await updateNowPlaying(forceRefresh: true) }
+                if userEnabledRPC {
+                    if discord.isAuthenticated && discord.isReady {
+                        Task { await updateNowPlaying(forceRefresh: true) }
+                    } else if !discord.isAuthorizing {
+                        // The gateway connection can silently drop while
+                        // backgrounded (see DiscordSocialKit's own
+                        // reconnect-after-disconnect logic) — coming back
+                        // to the foreground is a good extra chance to
+                        // re-establish it right away instead of waiting on
+                        // that backoff timer alone.
+                        Task { await discord.setupWithExistingToken() }
+                    }
                 }
             default:
                 break
